@@ -39,10 +39,10 @@ historical_earthquake_data = fetch_earthquake_data(historical_url)
 
 # Streamlit app layout
 st.title("Esta app de Santiago Celli es para ver terremotos")
-st.markdown("This app visualizes real-time and historical earthquake data from the US Geological Survey (USGS).")
+st.markdown("Esta aplicación toma datos reales de sismos desde la US Geological Survey (USGS).")
 
 # Filter by magnitude
-min_magnitude = st.slider("Minimum Magnitude", min_value=0.0, max_value=10.0, value=1.0, step=0.1)
+min_magnitude = st.slider("Magnitud mínima", min_value=0.0, max_value=10.0, value=1.0, step=0.1)
 filtered_realtime_data = realtime_earthquake_data[realtime_earthquake_data["magnitude"] >= min_magnitude]
 filtered_historical_data = historical_earthquake_data[historical_earthquake_data["magnitude"] >= min_magnitude]
 
@@ -57,7 +57,7 @@ fig_realtime = px.scatter_mapbox(
     hover_data={"time_utc": True, "time_local": True, "magnitude": True},
     zoom=1,
     height=600,
-    title="Recent Earthquakes (Last Hour)"
+    title="Terremotos recientes (Ultima Hora)"
 )
 
 # Create a Plotly map for historical earthquakes
@@ -71,7 +71,7 @@ fig_historical = px.scatter_mapbox(
     hover_data={"time_utc": True, "time_local": True, "magnitude": True},
     zoom=1,
     height=600,
-    title="Historical Earthquakes (Last Month)"
+    title="Terremotos del ultimo mess (Ultimo mes)"
 )
 
 fig_realtime.update_layout(mapbox_style="open-street-map")
@@ -82,17 +82,17 @@ st.plotly_chart(fig_realtime)
 st.plotly_chart(fig_historical)
 
 # Display the filtered raw data
-st.subheader("Filtered Real-Time Earthquake Data")
+st.subheader("Data filtrada en tiempo real de terremotos")
 st.write(filtered_realtime_data)
 
-st.subheader("Filtered Historical Earthquake Data")
+st.subheader("Data filtrada en tiempo real de terremotos")
 st.write(filtered_historical_data)
 
 # Additional Information
-st.sidebar.subheader("About This App")
+st.sidebar.subheader("Acerca de esta App")
 st.sidebar.info(
     """
-    This application fetches real-time and historical earthquake data from the USGS API and visualizes it on interactive maps.
-    Use the slider to filter earthquakes by magnitude. The times are displayed in both UTC and local time.
+    Esta aplicación toma datos desde  the USGS API ay permite visualizarlos en mapas interactivos.
+    Usa el slide para filtrar los terremotos por su magnitud. La hora esta en tiempo local y en UTC.
     """
 )
