@@ -71,7 +71,7 @@ fig_historical = px.scatter_mapbox(
     hover_data={"time_utc": True, "time_local": True, "magnitude": True},
     zoom=1,
     height=600,
-    title="Terremotos del ultimo mess (Ultimo mes)"
+    title="Terremotos del ultimo mes (Ultimo mes)"
 )
 
 fig_realtime.update_layout(mapbox_style="open-street-map")
@@ -92,7 +92,7 @@ st.write(filtered_historical_data)
 st.sidebar.subheader("Acerca de esta App")
 st.sidebar.info(
     """
-    Esta aplicación toma datos desde  the USGS API ay permite visualizarlos en mapas interactivos.
+    Esta aplicación toma datos desde  the USGS API y permite visualizarlos en mapas interactivos.
     Usa el slide para filtrar los terremotos por su magnitud. La hora esta en tiempo local y en UTC.
     """
 )
