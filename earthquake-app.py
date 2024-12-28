@@ -38,7 +38,7 @@ historical_url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_
 historical_earthquake_data = fetch_earthquake_data(historical_url)
 
 # Streamlit app layout
-st.title("Real-Time Earthquake Monitoring Webapp")
+st.title("Esta app de Santiago Celli es para ver terremotos")
 st.markdown("This app visualizes real-time and historical earthquake data from the US Geological Survey (USGS).")
 
 # Filter by magnitude
